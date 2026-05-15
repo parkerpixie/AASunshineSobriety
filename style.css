@@ -18,9 +18,13 @@
   --radius: 16px;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -40,7 +44,7 @@ a {
 .page {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 265px minmax(0, 1fr);
+  grid-template-columns: 285px minmax(0, 1fr);
   gap: 18px;
   padding: 18px;
 }
@@ -61,11 +65,46 @@ a {
 
 .logo-wrap {
   text-align: center;
-  padding: 8px 6px 18px;
+  padding: 8px 6px 14px;
   border-bottom: 1px solid #f1ddad;
   margin-bottom: 12px;
 }
 
+.logo-wrap a {
+  text-decoration: none;
+}
+
+/* New uploaded logo image */
+.site-logo {
+  display: block;
+  width: 100%;
+  max-width: 235px;
+  height: auto;
+  margin: 0 auto 12px;
+}
+
+/* Signup image below logo */
+.leader-signup-image {
+  display: block;
+  margin: 8px auto 0;
+}
+
+.leader-signup-image img {
+  display: block;
+  width: 100%;
+  max-width: 235px;
+  height: auto;
+  border-radius: 13px;
+  box-shadow: 0 4px 14px rgba(18, 60, 105, 0.12);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.leader-signup-image:hover img {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(18, 60, 105, 0.18);
+}
+
+/* Old generated CSS logo pieces can stay unused safely */
 .sun-mark {
   width: 82px;
   height: 52px;
@@ -129,20 +168,27 @@ a {
   color: var(--navy);
 }
 
+/* New real Fitchburg Serenity Club image */
 .sidebar-art {
   margin-top: auto;
-  height: 145px;
   border-radius: 13px;
   overflow: hidden;
   border: 1px solid #f1ddad;
-  background:
-    radial-gradient(circle at 44% 35%, #ffd86c 0 20%, transparent 21%),
-    linear-gradient(160deg, transparent 0 52%, rgba(74, 143, 97, .45) 53% 68%, rgba(65, 126, 89, .8) 69%),
-    linear-gradient(150deg, transparent 0 45%, rgba(99, 157, 121, .45) 46% 63%, rgba(73, 132, 96, .8) 64%),
-    linear-gradient(180deg, #fff3c8 0%, #dceefb 62%, #b9d8c3 100%);
+  box-shadow: 0 4px 14px rgba(18, 60, 105, 0.12);
+  background: #fff9ee;
 }
 
-.main { min-width: 0; }
+.sidebar-art img {
+  display: block;
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.main {
+  min-width: 0;
+}
 
 .hero {
   display: grid;
@@ -237,10 +283,25 @@ h1 {
   letter-spacing: 0.02em;
 }
 
-.label.note { background: #f3f3f3; color: #555; }
-.label.do { background: #e8f3ff; color: #1f67a9; }
-.label.copy { background: #eaf7e8; color: var(--green-dark); }
-.label.link { background: var(--purple); color: var(--purple-dark); }
+.label.note {
+  background: #f3f3f3;
+  color: #555;
+}
+
+.label.do {
+  background: #e8f3ff;
+  color: #1f67a9;
+}
+
+.label.copy {
+  background: #eaf7e8;
+  color: var(--green-dark);
+}
+
+.label.link {
+  background: var(--purple);
+  color: var(--purple-dark);
+}
 
 .icon-box {
   width: 48px;
@@ -254,29 +315,52 @@ h1 {
   box-shadow: inset 0 -3px 0 rgba(0,0,0,0.08);
 }
 
-.note .icon-box { background: linear-gradient(180deg, #9a9a9a, #626262); }
-.do .icon-box { background: linear-gradient(180deg, #6ca3d8, #2d74b8); }
-.copy .icon-box { background: linear-gradient(180deg, #70a56f, #3d7b42); }
-.link .icon-box { background: linear-gradient(180deg, #a385d6, #7350aa); }
+.note .icon-box {
+  background: linear-gradient(180deg, #9a9a9a, #626262);
+}
 
-.content { padding: 14px 18px; }
+.do .icon-box {
+  background: linear-gradient(180deg, #6ca3d8, #2d74b8);
+}
 
-h2, h3 {
+.copy .icon-box {
+  background: linear-gradient(180deg, #70a56f, #3d7b42);
+}
+
+.link .icon-box {
+  background: linear-gradient(180deg, #a385d6, #7350aa);
+}
+
+.content {
+  padding: 14px 18px;
+}
+
+h2,
+h3 {
   margin: 0 0 8px;
   color: #17212b;
 }
 
-h2 { font-size: 20px; }
-h3 { font-size: 18px; }
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
 
 p {
   margin: 0 0 8px;
   line-height: 1.45;
 }
 
-p:last-child { margin-bottom: 0; }
+p:last-child {
+  margin-bottom: 0;
+}
 
-.script-line { font-size: 16px; }
+.script-line {
+  font-size: 16px;
+}
 
 .prayer {
   font-style: italic;
@@ -287,7 +371,9 @@ p:last-child { margin-bottom: 0; }
   border-radius: 10px;
 }
 
-.strong { font-weight: 900; }
+.strong {
+  font-weight: 900;
+}
 
 .small {
   font-size: 13px;
@@ -370,9 +456,13 @@ p:last-child { margin-bottom: 0; }
   white-space: nowrap;
 }
 
-.copy-button:hover { background: #e8f8e7; }
+.copy-button:hover {
+  background: #e8f8e7;
+}
 
-.copy-body { padding: 12px 22px 18px; }
+.copy-body {
+  padding: 12px 22px 18px;
+}
 
 .copy-preview {
   white-space: pre-wrap;
@@ -461,28 +551,60 @@ summary {
   opacity: 1;
 }
 
+/* Tablet */
 @media (max-width: 1100px) {
-  .page { grid-template-columns: 1fr; }
+  .page {
+    grid-template-columns: 1fr;
+  }
 
   .sidebar {
     position: static;
     height: auto;
   }
 
-  .nav { grid-template-columns: repeat(2, 1fr); }
-  .sidebar-art { display: none; }
-  .layout { grid-template-columns: 1fr; }
+  .nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sidebar-art {
+    display: none;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .site-logo {
+    max-width: 260px;
+  }
+
+  .leader-signup-image img {
+    max-width: 300px;
+  }
 }
 
+/* Mobile */
 @media (max-width: 720px) {
-  .page { padding: 10px; }
-  .hero { grid-template-columns: 1fr; }
-  .hope-card { max-width: none; }
+  .page {
+    padding: 10px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hope-card {
+    max-width: none;
+  }
 
   .script-card,
-  .two-mini { grid-template-columns: 1fr; }
+  .two-mini {
+    grid-template-columns: 1fr;
+  }
 
-  .label { grid-template-columns: 44px 1fr; }
+  .label {
+    grid-template-columns: 44px 1fr;
+  }
 
   .icon-box {
     width: 42px;
@@ -490,9 +612,17 @@ summary {
     font-size: 23px;
   }
 
-  .nav { grid-template-columns: 1fr; }
-  .copy-head { flex-direction: column; }
-  .jump-row { grid-template-columns: 1fr; }
+  .nav {
+    grid-template-columns: 1fr;
+  }
+
+  .copy-head {
+    flex-direction: column;
+  }
+
+  .jump-row {
+    grid-template-columns: 1fr;
+  }
 
   .jump,
   .copy-button {
@@ -506,6 +636,7 @@ summary {
   }
 }
 
+/* Print */
 @media print {
   .sidebar,
   .copy-button,
@@ -528,5 +659,7 @@ summary {
     break-inside: avoid;
   }
 
-  .card { margin-bottom: 10px; }
+  .card {
+    margin-bottom: 10px;
+  }
 }
