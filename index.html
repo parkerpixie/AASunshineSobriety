@@ -3,22 +3,874 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SunShiners Leader Dashboard</title>
+  <title>SunShiners 7:30 AM Meeting Leader Dashboard</title>
+
+  <style>
+    :root {
+      --navy: #123c69;
+      --blue: #3d84c6;
+      --sky: #dceefb;
+      --sun: #f8b72e;
+      --sun-dark: #d88a00;
+      --cream: #fff9ee;
+      --paper: #ffffff;
+      --sand: #f6ead5;
+      --green: #eaf7e8;
+      --green-dark: #2f6b3d;
+      --gray: #6f6f6f;
+      --soft-gray: #f4f4f4;
+      --border: #ead7ad;
+      --shadow: 0 8px 24px rgba(18, 60, 105, 0.11);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1f2933;
+      background:
+        radial-gradient(circle at top left, rgba(248,183,46,0.2), transparent 32%),
+        linear-gradient(180deg, #fffdf8 0%, #fff7e8 100%);
+    }
+
+    a {
+      color: #0759a5;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 255px minmax(0, 1fr);
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      background: rgba(255, 249, 238, 0.96);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 14px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .logo-wrap {
+      text-align: center;
+      padding: 8px 6px 18px;
+      border-bottom: 1px solid #f1ddad;
+      margin-bottom: 12px;
+    }
+
+    .sun-mark {
+      width: 82px;
+      height: 52px;
+      margin: 0 auto 4px;
+      position: relative;
+    }
+
+    .sun-mark::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 10px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #ffd86c, #f6ad25);
+      box-shadow: 0 0 0 8px rgba(248, 183, 46, 0.15);
+    }
+
+    .sun-mark::after {
+      content: "";
+      position: absolute;
+      left: 6px;
+      right: 6px;
+      bottom: 2px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, #8ec5df, #5aa5c8, #8ec5df, transparent);
+    }
+
+    .logo-text {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-size: 34px;
+      color: #ed9d22;
+      line-height: 1;
+    }
+
+    .nav {
+      display: grid;
+      gap: 6px;
+      overflow: auto;
+      padding-right: 3px;
+    }
+
+    .nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #1e2b37;
+      padding: 11px 12px;
+      border-radius: 11px;
+      font-weight: 700;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background: #e9f3ff;
+      color: var(--navy);
+    }
+
+    .sidebar-art {
+      margin-top: auto;
+      height: 145px;
+      border-radius: 13px;
+      overflow: hidden;
+      border: 1px solid #f1ddad;
+      background:
+        radial-gradient(circle at 44% 35%, #ffd86c 0 20%, transparent 21%),
+        linear-gradient(160deg, transparent 0 52%, rgba(74, 143, 97, .45) 53% 68%, rgba(65, 126, 89, .8) 69%),
+        linear-gradient(150deg, transparent 0 45%, rgba(99, 157, 121, .45) 46% 63%, rgba(73, 132, 96, .8) 64%),
+        linear-gradient(180deg, #fff3c8 0%, #dceefb 62%, #b9d8c3 100%);
+    }
+
+    .main {
+      min-width: 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid #f1ddad;
+      border-radius: var(--radius);
+      padding: 20px 26px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      color: var(--blue);
+      font-style: italic;
+      font-size: 21px;
+      margin-top: 7px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .subtitle::before,
+    .subtitle::after {
+      content: "";
+      height: 2px;
+      width: 52px;
+      background: #9fb9d1;
+    }
+
+    .hope-card {
+      border: 1px solid #f1cd83;
+      background: #fff7e8;
+      border-radius: 14px;
+      padding: 14px 18px;
+      color: var(--navy);
+      max-width: 270px;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      align-items: center;
+      gap: 10px;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.95fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.88);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(18, 60, 105, 0.07);
+      scroll-margin-top: 22px;
+    }
+
+    .script-card {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+    }
+
+    .label {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      align-items: center;
+      gap: 10px;
+      padding: 14px;
+      background: #fff4d7;
+      color: var(--sun-dark);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .label.note {
+      background: #f3f3f3;
+      color: #555;
+    }
+
+    .label.do {
+      background: #e8f3ff;
+      color: #1f67a9;
+    }
+
+    .label.copy {
+      background: #eaf7e8;
+      color: var(--green-dark);
+    }
+
+    .icon-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 27px;
+      background: linear-gradient(180deg, #ffc845, #f0a800);
+      color: white;
+      box-shadow: inset 0 -3px 0 rgba(0,0,0,0.08);
+    }
+
+    .note .icon-box {
+      background: linear-gradient(180deg, #9a9a9a, #626262);
+    }
+
+    .do .icon-box {
+      background: linear-gradient(180deg, #6ca3d8, #2d74b8);
+    }
+
+    .copy .icon-box {
+      background: linear-gradient(180deg, #70a56f, #3d7b42);
+    }
+
+    .content {
+      padding: 14px 18px;
+    }
+
+    h2, h3 {
+      margin: 0 0 8px;
+      color: #17212b;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    h3 {
+      font-size: 19px;
+    }
+
+    p {
+      margin: 0 0 8px;
+      line-height: 1.45;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .script-line {
+      font-size: 16px;
+    }
+
+    .prayer {
+      font-style: italic;
+      color: #1c2f3e;
+    }
+
+    .strong {
+      font-weight: 900;
+    }
+
+    .two-mini {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 8px;
+    }
+
+    .jump-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .jump {
+      text-decoration: none;
+      border: 1px solid #c8d9ef;
+      background: #f4f9ff;
+      color: #2267a8;
+      border-radius: 12px;
+      padding: 9px 12px;
+      white-space: nowrap;
+      font-weight: 900;
+    }
+
+    .jump.orange {
+      border-color: #ffc869;
+      color: #c97800;
+      background: #fff8ed;
+    }
+
+    .copy-card {
+      border-color: #b9d8b7;
+      background: linear-gradient(180deg, #f4fff2 0%, #effced 100%);
+    }
+
+    .copy-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 14px;
+      padding: 14px 16px 0;
+    }
+
+    .copy-title {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .copy-kicker {
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--green-dark);
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .copy-button {
+      border: 1px solid #7fb17d;
+      background: #f6fff5;
+      color: var(--green-dark);
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 900;
+      cursor: pointer;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .copy-button:hover {
+      background: #e8f8e7;
+    }
+
+    .copy-body {
+      padding: 12px 22px 18px;
+    }
+
+    .copy-body ul,
+    .content ul {
+      margin: 8px 0 0 20px;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .note-card {
+      border-color: #d2d2d2;
+      background: #fbfbfb;
+    }
+
+    .zoom-card {
+      border-color: #c8d9ef;
+      background: linear-gradient(180deg, #f7fbff, #edf6ff);
+    }
+
+    .footer {
+      margin-top: 12px;
+      border: 1px solid #f1ddad;
+      border-radius: 14px;
+      background: rgba(255, 249, 238, 0.92);
+      padding: 13px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 34px;
+      color: #936111;
+      font-style: italic;
+      box-shadow: var(--shadow);
+    }
+
+    .toast {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      background: var(--navy);
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      transform: translateY(120px);
+      opacity: 0;
+      transition: 0.25s ease;
+      font-weight: 800;
+      z-index: 20;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 1100px) {
+      .page {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        height: auto;
+      }
+
+      .nav {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sidebar-art {
+        display: none;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        padding: 10px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hope-card {
+        max-width: none;
+      }
+
+      .script-card,
+      .two-mini {
+        grid-template-columns: 1fr;
+      }
+
+      .label {
+        grid-template-columns: 44px 1fr;
+      }
+
+      .icon-box {
+        width: 42px;
+        height: 42px;
+        font-size: 23px;
+      }
+
+      .nav {
+        grid-template-columns: 1fr;
+      }
+
+      .copy-head {
+        flex-direction: column;
+      }
+
+      .footer {
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>SunShiners 7:30 AM Meeting Leader Dashboard</h1>
-  <p>Easy Leader Version</p>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="logo-wrap">
+        <div class="sun-mark" aria-hidden="true"></div>
+        <div class="logo-text">SunShiners</div>
+      </div>
 
-  <h2>Start Here</h2>
-  <p>Before the meeting: please open Chapter 5 – How It Works and AA Daily Reflections.</p>
+      <nav class="nav" aria-label="Meeting leader navigation">
+        <a href="#start" class="active">🏠 Start Here</a>
+        <a href="#opening">🌅 Opening</a>
+        <a href="#preamble">📖 Preamble</a>
+        <a href="#newcomers">👥 Newcomers</a>
+        <a href="#chapter5">📚 Chapter 5 Reading</a>
+        <a href="#chat1">💬 Chat Part 1</a>
+        <a href="#chat2">💬 Chat Part 2</a>
+        <a href="#reflection">⭐ Reflection</a>
+        <a href="#milestones">🏅 Milestones</a>
+        <a href="#sharing">👥 Topic & Sharing</a>
+        <a href="#closing">🌄 Closing</a>
+        <a href="#zoomhelp">❔ Zoom Help</a>
+      </nav>
 
-  <h2>Opening</h2>
-  <p>Good morning, welcome to the 7:30 AM SunShiners meeting of AA.</p>
+      <div class="sidebar-art" aria-hidden="true"></div>
+    </aside>
 
-  <h2>Helpful Links</h2>
-  <ul>
-    <li><a href="https://www.aa.org/daily-reflections" target="_blank">AA Daily Reflections</a></li>
-    <li><a href="https://www.aa.org/the-big-book" target="_blank">AA Big Book</a></li>
-  </ul>
+    <main class="main">
+      <header class="hero">
+        <div>
+          <h1>SunShiners 7:30 AM Meeting Leader Dashboard</h1>
+          <div class="subtitle">Easy Leader Version</div>
+        </div>
+
+        <div class="hope-card">
+          <span style="font-size: 34px;">☀️</span>
+          <span>Thank you for carrying the message of hope and recovery.</span>
+        </div>
+      </header>
+
+      <section class="layout">
+        <div class="stack">
+          <article id="start" class="card script-card">
+            <div class="label note">
+              <div class="icon-box">📝</div>
+              <div>Note</div>
+            </div>
+            <div class="content">
+              <h2>Start Here</h2>
+              <p class="script-line">Before the meeting: please open Chapter 5 – How It Works and AA Daily Reflections.</p>
+              <p class="script-line">During the Chapter 5 reading, paste Announcements Part 1, Announcements Part 2, and the daily reflection link into the Zoom chat.</p>
+            </div>
+          </article>
+
+          <article id="opening" class="card script-card">
+            <div class="label">
+              <div class="icon-box">💬</div>
+              <div>Say</div>
+            </div>
+            <div class="content">
+              <h2>Opening</h2>
+              <p class="script-line">Good morning, welcome to the 7:30 AM SunShiners meeting of Alcoholics Anonymous.</p>
+              <p class="prayer">God, grant me the serenity to accept the things I cannot change, courage to change the things I can, and wisdom to know the difference.</p>
+            </div>
+          </article>
+
+          <article id="preamble" class="card script-card">
+            <div class="label">
+              <div class="icon-box">💬</div>
+              <div>Say</div>
+            </div>
+            <div class="content">
+              <h2>Preamble</h2>
+              <p class="script-line">Alcoholics Anonymous is a fellowship of people who share their experience, strength, and hope with each other that they may solve their common problem and help others to recover from alcoholism.</p>
+            </div>
+          </article>
+
+          <article id="newcomers" class="card script-card">
+            <div class="label">
+              <div class="icon-box">💬</div>
+              <div>Say</div>
+            </div>
+            <div class="content">
+              <h2>Newcomers</h2>
+              <p class="script-line">Is this anyone’s first meeting of AA?</p>
+              <p class="script-line">Do we have anyone visiting?</p>
+              <p class="script-line">Would anyone like a first step meeting?</p>
+            </div>
+          </article>
+
+          <div id="chapter5" class="two-mini">
+            <article class="card script-card">
+              <div class="label">
+                <div class="icon-box">💬</div>
+                <div>Say</div>
+              </div>
+              <div class="content">
+                <h2>Chapter 5 Reading</h2>
+                <p class="script-line">Now we need a volunteer to read the first part of Chapter 5 – How It Works.</p>
+              </div>
+            </article>
+
+            <article class="card script-card">
+              <div class="label do">
+                <div class="icon-box">📋</div>
+                <div>Do</div>
+              </div>
+              <div class="content">
+                <h2>While they read:</h2>
+                <ul>
+                  <li>Paste Announcements Part 1 in chat.</li>
+                  <li>Paste Announcements Part 2 in chat.</li>
+                  <li>Paste the Daily Reflection link in chat.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <article id="reflection" class="card script-card">
+            <div class="label">
+              <div class="icon-box">💬</div>
+              <div>Say</div>
+            </div>
+            <div class="content jump-row">
+              <div>
+                <h2>Reflection</h2>
+                <p class="script-line">Could someone please read the reflection of the day?</p>
+              </div>
+              <a class="jump" href="https://www.aa.org/daily-reflections" target="_blank" rel="noopener">Open Reflection ›</a>
+            </div>
+          </article>
+
+          <article id="sharing" class="card script-card">
+            <div class="label">
+              <div class="icon-box">💬</div>
+              <div>Say</div>
+            </div>
+            <div class="content jump-row">
+              <div>
+                <h2>Topic & Sharing</h2>
+                <p class="script-line">We share from our own experience, strength, and hope.</p>
+                <p class="script-line">Please be brief and allow others a chance to share.</p>
+                <p class="strong">The floor is now open for discussion.</p>
+              </div>
+              <a class="jump orange" href="#sharing">Sharing ›</a>
+            </div>
+          </article>
+
+          <article id="closing" class="card script-card">
+            <div class="label">
+              <div class="icon-box">💬</div>
+              <div>Say</div>
+            </div>
+            <div class="content jump-row">
+              <div>
+                <h2>Closing</h2>
+                <p class="script-line">Let’s keep the meeting open for a few minutes for fellowship.</p>
+                <p class="prayer">God, grant us the serenity to accept the things we cannot change, courage to change the things we can, and wisdom to know the difference.</p>
+              </div>
+              <a class="jump orange" href="#closing">Closing ›</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="stack">
+          <article id="chat1" class="card copy-card">
+            <div class="copy-head">
+              <div class="copy-title">
+                <div class="icon-box" style="background: linear-gradient(180deg, #70a56f, #3d7b42);">💬</div>
+                <div>
+                  <div class="copy-kicker">Copy to Chat</div>
+                  <h2>Announcements Part 1</h2>
+                </div>
+              </div>
+              <button class="copy-button" onclick="copyBlock('announcements1', 'Announcements Part 1 copied')">📋 Copy Part 1</button>
+            </div>
+
+            <div class="copy-body">
+              <ul>
+                <li>Join our group email list for updates and news:<br>
+                  <a href="https://groups.google.com/g/sunshiners-aa" target="_blank" rel="noopener">https://groups.google.com/g/sunshiners-aa</a>
+                </li>
+                <li>Support our group – 7th Tradition donations:<br>
+                  <a href="https://www.paypal.com/donate/?hosted_button_id=SUNSHINERSAA" target="_blank" rel="noopener">https://www.paypal.com/donate/?hosted_button_id=SUNSHINERSAA</a>
+                </li>
+                <li>Sign up to lead a meeting:<br>
+                  <a href="https://docs.google.com/spreadsheets/d/1LEADERSHIP/signup" target="_blank" rel="noopener">https://docs.google.com/spreadsheets/d/1LEADERSHIP/signup</a>
+                </li>
+                <li>Leader contact & group info:<br>
+                  <a href="https://docs.google.com/spreadsheets/d/1SUNSHINERSINFO" target="_blank" rel="noopener">https://docs.google.com/spreadsheets/d/1SUNSHINERSINFO</a>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article id="chat2" class="card copy-card">
+            <div class="copy-head">
+              <div class="copy-title">
+                <div class="icon-box" style="background: linear-gradient(180deg, #70a56f, #3d7b42);">💬</div>
+                <div>
+                  <div class="copy-kicker">Copy to Chat</div>
+                  <h2>Announcements Part 2</h2>
+                </div>
+              </div>
+              <button class="copy-button" onclick="copyBlock('announcements2', 'Announcements Part 2 copied')">📋 Copy Part 2</button>
+            </div>
+
+            <div class="copy-body">
+              <ul>
+                <li>Other meetings, local & online: <a href="https://aameetings.org" target="_blank" rel="noopener">https://aameetings.org</a></li>
+                <li>24/7 AA Intergroup Zoom Meetings: <a href="https://aa-intergroup.org/zoom" target="_blank" rel="noopener">https://aa-intergroup.org/zoom</a></li>
+                <li>AA Daily Reflection: <a href="https://www.aa.org/daily-reflections" target="_blank" rel="noopener">https://www.aa.org/daily-reflections</a></li>
+                <li>Worldwide Secular Meetings: <a href="https://secularaa.org/meetings" target="_blank" rel="noopener">https://secularaa.org/meetings</a></li>
+                <li>Resource Packet for newcomers: <a href="https://secularaa.org/resource-packet" target="_blank" rel="noopener">https://secularaa.org/resource-packet</a></li>
+                <li>Speaker Meeting, 1st Saturday of each month: <a href="https://secularaa.org/speaker" target="_blank" rel="noopener">https://secularaa.org/speaker</a></li>
+              </ul>
+            </div>
+          </article>
+
+          <article id="milestones" class="card script-card note-card">
+            <div class="label note">
+              <div class="icon-box">⭐</div>
+              <div>Note</div>
+            </div>
+            <div class="content">
+              <h2>Milestones</h2>
+              <p class="script-line">Please share new milestones in the chat or email the group so we can celebrate together.</p>
+            </div>
+          </article>
+
+          <article id="zoomhelp" class="card script-card zoom-card">
+            <div class="label do">
+              <div class="icon-box">🎥</div>
+              <div>Zoom Help</div>
+            </div>
+            <div class="content">
+              <h2>Zoom Help</h2>
+              <ul>
+                <li>Use the copy buttons to copy text to your clipboard.</li>
+                <li>In Zoom chat, right-click and select Paste, or use Ctrl+V on Windows / Cmd+V on Mac.</li>
+                <li>Long Zoom chat blocks may need to be pasted in two parts. That is why we provide Part 1 and Part 2.</li>
+                <li>If a link does not work, try copying and pasting it into your browser.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>☀️ One day at a time.</span>
+        <span>|</span>
+        <span>Easy does it.</span>
+        <span>|</span>
+        <span>Keep coming back. It works if you work it.</span>
+        <span>♡</span>
+      </footer>
+    </main>
+  </div>
+
+  <div id="toast" class="toast">Copied!</div>
+
+  <script>
+    const copyText = {
+      announcements1:
+`SunShiners Announcements – Part 1
+
+Join our group email list for updates and news:
+https://groups.google.com/g/sunshiners-aa
+
+Support our group – 7th Tradition donations:
+https://www.paypal.com/donate/?hosted_button_id=SUNSHINERSAA
+
+Sign up to lead a meeting:
+https://docs.google.com/spreadsheets/d/1LEADERSHIP/signup
+
+Leader contact & group info:
+https://docs.google.com/spreadsheets/d/1SUNSHINERSINFO`,
+
+      announcements2:
+`SunShiners Announcements – Part 2
+
+Other meetings, local & online:
+https://aameetings.org
+
+24/7 AA Intergroup Zoom Meetings:
+https://aa-intergroup.org/zoom
+
+AA Daily Reflection:
+https://www.aa.org/daily-reflections
+
+Worldwide Secular Meetings:
+https://secularaa.org/meetings
+
+Resource Packet for newcomers:
+https://secularaa.org/resource-packet
+
+Speaker Meeting, 1st Saturday of each month:
+https://secularaa.org/speaker`
+    };
+
+    function copyBlock(key, successMessage) {
+      const text = copyText[key];
+
+      if (!text) {
+        showToast("Nothing to copy yet");
+        return;
+      }
+
+      navigator.clipboard.writeText(text)
+        .then(() => showToast(successMessage))
+        .catch(() => {
+          const textarea = document.createElement("textarea");
+          textarea.value = text;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textarea);
+          showToast(successMessage);
+        });
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = "✅ " + message;
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2200);
+    }
+
+    const navLinks = document.querySelectorAll(".nav a");
+    const sections = [...navLinks].map(link => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+
+    window.addEventListener("scroll", () => {
+      let current = sections[0];
+
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < 180) current = section;
+      });
+
+      navLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === "#" + current.id);
+      });
+    });
+  </script>
 </body>
 </html>
