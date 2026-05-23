@@ -168,7 +168,7 @@ a {
   overflow: hidden;
 }
 
-//* HERO BANNER */
+/* HERO BANNER */
 
 .hero {
   background: rgba(255, 255, 255, 0.76);
@@ -675,20 +675,18 @@ summary {
     max-width: 300px;
   }
 
-  .hero-banner {
-    max-height: 230px;
-  }
-}
-
-/* MOBILE */
-
-@media (max-width: 1100px) {
   .hero.hero-banner-wrap {
     height: 240px;
   }
 }
 
+/* MOBILE */
+
 @media (max-width: 720px) {
+  .page {
+    padding: 10px;
+  }
+
   .hero.hero-banner-wrap {
     height: 190px;
   }
@@ -696,7 +694,6 @@ summary {
   .hero-banner {
     object-position: center center;
   }
-}
 
   .script-card,
   .two-mini {
