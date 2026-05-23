@@ -61,3 +61,11 @@ window.addEventListener("scroll", () => {
     link.classList.toggle("active", link.getAttribute("href") === "#" + current.id);
   });
 });
+function copyAndOpen(blockId, detailsId, message) {
+  copyBlock(blockId, message);
+
+  const details = document.getElementById(detailsId);
+  if (details) {
+    details.open = true;
+  }
+}
