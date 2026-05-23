@@ -116,8 +116,8 @@ a {
 
 .hero-signup-image {
   display: block;
-  width: 100%;
-  max-width: 720px;
+  width: clamp(300px, 28vw, 420px);
+  max-width: 100%;
   margin: 0;
   justify-self: end;
   align-self: center;
@@ -130,7 +130,7 @@ a {
   max-width: none;
   height: auto;
   border-radius: 15px;
-  box-shadow: 0 10px 28px rgba(18, 60, 105, 0.13);
+  box-shadow: 0 8px 22px rgba(18, 60, 105, 0.12);
 }
 
 /* Old generated CSS logo pieces hidden */
@@ -151,8 +151,8 @@ a {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 10px 4px 10px 0;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #f1ddad;
+  margin-bottom: 0;
+  border-bottom: none;
 }
 
 .nav a {
@@ -194,24 +194,10 @@ a {
   background: #747474;
 }
 
-/* BOTTOM FITCHBURG IMAGE */
+/* BOTTOM FITCHBURG IMAGE HIDDEN */
 
 .sidebar-art {
-  flex: 0 0 auto;
-  width: 100%;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid #f1ddad;
-  box-shadow: 0 4px 14px rgba(18, 60, 105, 0.12);
-  background: #fff9ee;
-}
-
-.sidebar-art img {
-  display: block;
-  width: 100%;
-  height: 135px;
-  object-fit: cover;
-  object-position: center 48%;
+  display: none;
 }
 
 /* MAIN CONTENT */
@@ -222,21 +208,22 @@ a {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(520px, 35vw, 720px);
+  grid-template-columns: minmax(0, 1fr) clamp(300px, 28vw, 420px);
   gap: 28px;
   align-items: center;
   background: rgba(255, 255, 255, 0.76);
   border: 1px solid #f1ddad;
   border-radius: var(--radius);
-  padding: 22px 30px;
+  padding: 20px 26px;
   box-shadow: var(--shadow);
   margin-bottom: 18px;
+  min-height: 220px;
 }
 
 h1 {
   margin: 0;
   color: var(--navy);
-  font-size: clamp(34px, 4vw, 58px);
+  font-size: clamp(34px, 3.7vw, 56px);
   line-height: 1.05;
   letter-spacing: -0.04em;
 }
@@ -244,8 +231,8 @@ h1 {
 .subtitle {
   color: var(--blue);
   font-style: italic;
-  font-size: 25px;
-  margin-top: 9px;
+  font-size: clamp(21px, 1.8vw, 26px);
+  margin-top: 12px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -647,11 +634,7 @@ summary {
     flex: none;
     overflow: visible;
     grid-template-columns: repeat(2, 1fr);
-    border-bottom: 1px solid #f1ddad;
-  }
-
-  .sidebar-art {
-    display: none;
+    border-bottom: none;
   }
 
   .layout {
@@ -663,11 +646,12 @@ summary {
   }
 
   .hero {
-    grid-template-columns: minmax(0, 1fr) minmax(360px, 44vw);
+    grid-template-columns: minmax(0, 1fr) clamp(300px, 34vw, 400px);
+    min-height: 200px;
   }
 
   h1 {
-    font-size: clamp(32px, 5vw, 50px);
+    font-size: clamp(32px, 4.6vw, 48px);
   }
 
   .subtitle {
@@ -675,7 +659,7 @@ summary {
   }
 
   .hero-signup-image {
-    max-width: 520px;
+    width: clamp(300px, 34vw, 400px);
   }
 }
 
@@ -690,6 +674,7 @@ summary {
     grid-template-columns: 1fr;
     gap: 16px;
     padding: 18px;
+    min-height: auto;
   }
 
   h1 {
