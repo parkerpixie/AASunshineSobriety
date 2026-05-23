@@ -771,3 +771,51 @@ summary {
     margin-bottom: 10px;
   }
 }
+/* COMPACT COPY / ANNOUNCEMENT CARDS */
+
+.compact-copy-card .copy-head {
+  padding: 16px;
+  align-items: center;
+}
+
+.compact-copy-card .copy-button {
+  min-width: 150px;
+  justify-content: center;
+}
+
+.copy-details {
+  margin: 0 16px 16px;
+  border: 1px solid #cde5c9;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.copy-details summary {
+  cursor: pointer;
+  padding: 12px 14px;
+  font-weight: 900;
+  color: var(--green-dark);
+  list-style: none;
+}
+
+.copy-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.copy-details summary::before {
+  content: "▶ ";
+  color: var(--green-dark);
+}
+
+.copy-details[open] summary::before {
+  content: "▼ ";
+}
+
+.compact-copy-card .copy-body {
+  padding: 0 14px 14px;
+}
+
+.compact-copy-card .copy-preview {
+  margin-top: 0;
+}
