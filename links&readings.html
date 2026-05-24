@@ -1,1 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Links & Readings | Sunshine Sobriety</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .page-tools {
+      display: grid;
+      grid-template-columns: 285px minmax(0, 1fr);
+      gap: 18px;
+      min-height: 100vh;
+      padding: 18px;
+    }
+
+    .sidebar-actions {
+      display: grid;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid #f1ddad;
+    }
+
+    .sidebar-action {
+      display: block;
+      text-decoration: none;
+      text-align: center;
+      color: var(--navy);
+      background: #f4f9ff;
+      border: 1px solid #c8d9ef;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .sidebar-action:hover {
+      background: #e9f3ff;
+    }
+
+    .tool-hero {
+      background:
+        linear-gradient(135deg, rgba(245, 239, 255, 0.96), rgba(255, 249, 238, 0.94)),
+        radial-gradient(circle at top right, rgba(248, 183, 46, 0.24), transparent 36%);
+      border: 1px solid #dec8f6;
+      border-radius: var(--radius);
+      padding: 22px 26px;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+    }
+
+    .tool-hero h1 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .tool-hero p {
+      max-width: 780px;
+      margin-top: 10px;
+      color: #4b4772;
+      font-size: 18px;
+    }
+
+    .single-column {
+      display: grid;
+      gap: 12px;
+      max-width: 980px;
+    }
+
+    .quick-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .quick-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      text-decoration: none;
+      border: 1px solid #dec8f6;
+      background: #ffffff;
+      color: var(--purple-dark);
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-weight: 900;
+    }
+
+    .quick-button:hover {
+      background: #fbf7ff;
+    }
+
+    .tool-card {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+    }
+
+    .link-grid {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .resource-link {
+      display: block;
+      text-decoration: none;
+      border: 1px solid #d8e7f5;
+      background: #f7fbff;
+      color: var(--navy);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 900;
+    }
+
+    .resource-link:hover {
+      background: #e9f3ff;
+    }
+
+    .tool-note {
+      background: #fff9ee;
+      border-left: 4px solid var(--sun);
+      border-radius: 10px;
+      padding: 10px 12px;
+      color: #1c2f3e;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 1100px) {
+      .page-tools {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page-tools {
+        padding: 10px;
+      }
+
+      .tool-card {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-hero {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-tools">
+    <aside class="sidebar">
+      <div class="logo-wrap">
+        <a href="index.html" aria-label="Back to Sunshine Sobriety Online home">
+          <img class="site-logo" src="images/Logo5.png" alt="Sunshine Sobriety Online logo">
+        </a>
+      </div>
+
+      <nav class="nav" aria-label="Page navigation">
+        <a href="index.html">🏠 Main Script</a>
+        <a href="#daily-reflection" class="active">⭐ Daily Reflection</a>
+        <a href="#aa-readings">📚 AA Readings</a>
+        <a href="#recovery-reflections">🌿 Recovery Reflections</a>
+        <a href="#secular">🌎 Secular Meetings</a>
+        <a href="#fsc-links">🔗 FSC Links</a>
+      </nav>
+
+      <div class="sidebar-actions">
+        <a class="sidebar-action" href="index.html">← Back to Main Script</a>
+        <a class="sidebar-action" href="Zoomhelp.html">❔ Zoom Help</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="tool-hero">
+        <h1>Links &amp; Readings</h1>
+        <p>All the common reflection, reading, meeting, and service links in one calm little library. Less hunting, more leading.</p>
+
+        <div class="quick-row" aria-label="Quick navigation">
+          <a class="quick-button" href="index.html">← Main Script</a>
+          <a class="quick-button" href="Zoomhelp.html">Zoom Help</a>
+        </div>
+      </header>
+
+      <section class="single-column">
+        <article id="daily-reflection" class="card tool-card links-card">
+          <div class="label link">
+            <div class="icon-box">⭐</div>
+            <div>Reflect</div>
+          </div>
+
+          <div class="content">
+            <h2>Daily Reflection</h2>
+            <p><strong>Use the official AA Daily Reflection most of the time.</strong></p>
+
+            <div class="link-grid">
+              <a class="resource-link" href="https://www.aa.org/daily-reflections" target="_blank" rel="noopener">AA Daily Reflections</a>
+            </div>
+
+            <p class="tool-note">Leader flow reminder: open the reflection while Chapter 5 is being read, then paste the reflection link into Zoom chat.</p>
+          </div>
+        </article>
+
+        <article id="aa-readings" class="card tool-card">
+          <div class="label link">
+            <div class="icon-box">📚</div>
+            <div>Readings</div>
+          </div>
+
+          <div class="content">
+            <h2>AA Readings</h2>
+            <p>Use Chapter 5 for the regular meeting reading. Use Chapter 3 only for a first step meeting or relapse-related first step meeting.</p>
+
+            <div class="link-grid">
+              <a class="resource-link" href="https://www.aa.org/sites/default/files/2021-11/en_bigbook_chapt5.pdf" target="_blank" rel="noopener">Chapter 5 - How It Works</a>
+              <a class="resource-link" href="https://www.aa.org/sites/default/files/2021-11/en_bigbook_chapt3.pdf" target="_blank" rel="noopener">Chapter 3 - More About Alcoholism</a>
+              <a class="resource-link" href="https://docs.google.com/document/d/1NadSeUQ7gs01p3T3j9mKy98ddi4QYPoduhAAmuck3Oc/edit?usp=sharing" target="_blank" rel="noopener">Full Leader Script Google Doc</a>
+            </div>
+          </div>
+        </article>
+
+        <article id="recovery-reflections" class="card tool-card">
+          <div class="label note">
+            <div class="icon-box">🌿</div>
+            <div>Options</div>
+          </div>
+
+          <div class="content">
+            <h2>Other Recovery Reflection Options</h2>
+            <p>Use these when someone brings another recovery-related reading or when a different reflection is preferred.</p>
+
+            <div class="link-grid">
+              <a class="resource-link" href="https://www.hazeldenbettyford.org/thought-for-the-day" target="_blank" rel="noopener">Hazelden Thought for the Day</a>
+              <a class="resource-link" href="https://recoveryhq.com/recovery-resources/daily-inspirations/" target="_blank" rel="noopener">Recovery HQ Daily Inspirations</a>
+            </div>
+
+            <p><strong>Other commonly used readings may come from:</strong></p>
+            <ul>
+              <li>Buddhism &amp; the Twelve Steps Daily Reflections: Thoughts on Dharma and Recovery</li>
+              <li>Beyond Belief: Agnostic Musings for 12 Step Life</li>
+              <li>24 Hours a Day</li>
+            </ul>
+          </div>
+        </article>
+
+        <article id="secular" class="card tool-card">
+          <div class="label link">
+            <div class="icon-box">🌎</div>
+            <div>Secular</div>
+          </div>
+
+          <div class="content">
+            <h2>Secular Meeting Resource</h2>
+            <p>Useful for members looking for secular recovery meeting options.</p>
+
+            <div class="link-grid">
+              <a class="resource-link" href="https://www.worldwidesecularmeetings.com/" target="_blank" rel="noopener">Worldwide Secular Meetings</a>
+            </div>
+          </div>
+        </article>
+
+        <article id="fsc-links" class="card tool-card">
+          <div class="label copy">
+            <div class="icon-box">🔗</div>
+            <div>FSC</div>
+          </div>
+
+          <div class="content">
+            <h2>FSC / Meeting Links</h2>
+            <p>Common links that appear in the announcements and leader flow.</p>
+
+            <div class="link-grid">
+              <a class="resource-link" href="https://fitchburgserenityclub.com/" target="_blank" rel="noopener">Fitchburg Serenity Club Contributions</a>
+              <a class="resource-link" href="https://www.signupgenius.com/go/5080e4aaca72ea2fe3-fsc730" target="_blank" rel="noopener">Sign Up to Lead This Meeting</a>
+              <a class="resource-link" href="https://docs.google.com/spreadsheets/d/1KEbguEC6e_blwJB_oEo1ubpRI0QoKJOL/edit#gid=1732233350" target="_blank" rel="noopener">FSC 7:30 AM Sunshine Sobriety Contact Sheet</a>
+              <a class="resource-link" href="https://docs.google.com/document/d/1KSrapFkOkxkTzOV8fXPM66kBfkjXZWc-/edit?amp;ouid=107367626261618989098&amp;amp;rtpof=true&amp;amp;sd=true" target="_blank" rel="noopener">FSC Resource Packet</a>
+              <a class="resource-link" href="https://docs.google.com/spreadsheets/d/15B9vhuPxPeryDIu_pvGkiyNhheJsnlZ3ZRSi9T9MUG0/edit" target="_blank" rel="noopener">FSC Speaker Meeting Sign-Up</a>
+              <a class="resource-link" href="https://aa-intergroup.org/meetings/" target="_blank" rel="noopener">24/7 AA Intergroup Zoom Meetings</a>
+            </div>
+
+            <p class="tool-note">For the Google group email list, send a request to rbrtbohanan52@gmail.com.</p>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <span>☀️ Sunshine Sobriety</span>
+        <span>Links &amp; Readings</span>
+        <span><a href="index.html">Back to Main Script</a></span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
