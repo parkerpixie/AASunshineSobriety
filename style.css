@@ -421,33 +421,28 @@ p:last-child {
   text-align: center;
   font-style: italic;
   color: #123c69;
-  background:
-    radial-gradient(circle at top center, rgba(248, 183, 46, 0.24), transparent 42%),
-    linear-gradient(180deg, #fffdf8 0%, #fff5dd 100%);
+  background: linear-gradient(180deg, #fffdf8 0%, #fff7e8 100%);
   border: 1px solid #f1cd83;
-  border-top: 4px solid var(--sun);
-  border-radius: 16px;
-  padding: 18px 22px;
-  margin: 12px 0 0;
-  line-height: 1.65;
-  box-shadow: 0 4px 14px rgba(18, 60, 105, 0.08);
+  border-left: 4px solid var(--sun);
+  border-radius: 12px;
+  padding: 11px 14px;
+  margin: 8px 0 0;
+  line-height: 1.45;
+  box-shadow: 0 2px 8px rgba(18, 60, 105, 0.06);
 }
 
 .prayer strong {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   color: var(--sun-dark);
   font-style: normal;
-  font-size: 15px;
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 .prayer::before {
-  content: "☀️";
-  display: block;
-  font-size: 24px;
-  margin-bottom: 6px;
+  content: none;
 }
 
 .strong {
