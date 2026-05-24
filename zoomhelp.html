@@ -1,1 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Zoom Help | Sunshine Sobriety</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .page-tools {
+      display: grid;
+      grid-template-columns: 285px minmax(0, 1fr);
+      gap: 18px;
+      min-height: 100vh;
+      padding: 18px;
+    }
+
+    .sidebar-actions {
+      display: grid;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid #f1ddad;
+    }
+
+    .sidebar-action {
+      display: block;
+      text-decoration: none;
+      text-align: center;
+      color: var(--navy);
+      background: #f4f9ff;
+      border: 1px solid #c8d9ef;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .sidebar-action:hover {
+      background: #e9f3ff;
+    }
+
+    .tool-hero {
+      background:
+        linear-gradient(135deg, rgba(220, 238, 251, 0.94), rgba(255, 249, 238, 0.94)),
+        radial-gradient(circle at top right, rgba(248, 183, 46, 0.28), transparent 36%);
+      border: 1px solid #f1ddad;
+      border-radius: var(--radius);
+      padding: 22px 26px;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+    }
+
+    .tool-hero h1 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .tool-hero p {
+      max-width: 780px;
+      margin-top: 10px;
+      color: #315a7a;
+      font-size: 18px;
+    }
+
+    .single-column {
+      display: grid;
+      gap: 12px;
+      max-width: 980px;
+    }
+
+    .quick-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .quick-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      text-decoration: none;
+      border: 1px solid #c8d9ef;
+      background: #ffffff;
+      color: var(--navy);
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-weight: 900;
+    }
+
+    .quick-button:hover {
+      background: #f4f9ff;
+    }
+
+    .tool-card {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+    }
+
+    .tool-card details {
+      margin-top: 10px;
+    }
+
+    .tool-note {
+      background: #fff9ee;
+      border-left: 4px solid var(--sun);
+      border-radius: 10px;
+      padding: 10px 12px;
+      color: #1c2f3e;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 1100px) {
+      .page-tools {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page-tools {
+        padding: 10px;
+      }
+
+      .tool-card {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-hero {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-tools">
+    <aside class="sidebar">
+      <div class="logo-wrap">
+        <a href="index.html" aria-label="Back to Sunshine Sobriety Online home">
+          <img class="site-logo" src="images/Logo5.png" alt="Sunshine Sobriety Online logo">
+        </a>
+      </div>
+
+      <nav class="nav" aria-label="Page navigation">
+        <a href="index.html">🏠 Main Script</a>
+        <a href="#claiming-host" class="active">🧑‍💻 Claiming Host</a>
+        <a href="#screen-share">🖥️ Sharing Screen</a>
+        <a href="#copy-paste">💬 Copy / Paste</a>
+        <a href="#end-meeting">🌄 End of Meeting</a>
+        <a href="#troubleshooting">🛟 Troubleshooting</a>
+      </nav>
+
+      <div class="sidebar-actions">
+        <a class="sidebar-action" href="index.html">← Back to Main Script</a>
+        <a class="sidebar-action" href="links&amp;readings.html">🔗 Links &amp; Readings</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="tool-hero">
+        <h1>Zoom Help</h1>
+        <p>Quick support for leading the 7:30 AM Sunshine Sobriety online meeting. Use this page when the room needs a tiny tech lighthouse instead of a panic spiral.</p>
+
+        <div class="quick-row" aria-label="Quick navigation">
+          <a class="quick-button" href="index.html">← Main Script</a>
+          <a class="quick-button" href="links&amp;readings.html">Links &amp; Readings</a>
+        </div>
+      </header>
+
+      <section class="single-column">
+        <article id="claiming-host" class="card tool-card">
+          <div class="label do">
+            <div class="icon-box">🧑‍💻</div>
+            <div>Host</div>
+          </div>
+
+          <div class="content">
+            <h2>Claiming Host</h2>
+            <p>Use this if you need host controls for screen sharing, muting, or keeping the meeting room running smoothly.</p>
+
+            <details open>
+              <summary>Steps to claim host</summary>
+              <div class="details-body">
+                <ul>
+                  <li>Select <strong>Participants</strong> at the bottom of your Zoom screen, next to Chat.</li>
+                  <li>Select <strong>Claim host</strong>.</li>
+                  <li>Enter the host code when prompted.</li>
+                  <li>You will need the host passcode if you want to share your screen or mute participants.</li>
+                </ul>
+              </div>
+            </details>
+
+            <p class="tool-note"><strong>Leader note:</strong> Keep the host code private. Do not post it in public chat.</p>
+          </div>
+        </article>
+
+        <article id="screen-share" class="card tool-card">
+          <div class="label do">
+            <div class="icon-box">🖥️</div>
+            <div>Share</div>
+          </div>
+
+          <div class="content">
+            <h2>Sharing Your Screen</h2>
+            <p>Use this when you need to share a reading, reflection, or other meeting resource.</p>
+
+            <details open>
+              <summary>Steps to share your screen</summary>
+              <div class="details-body">
+                <ul>
+                  <li>Open the page you want to share before you try to share your screen.</li>
+                  <li>Make sure you have claimed host if sharing is restricted.</li>
+                  <li>In Zoom, select the green <strong>Share</strong> button.</li>
+                  <li>Choose the correct page or window.</li>
+                  <li>Select <strong>Share</strong>.</li>
+                  <li>The window must be open in the background. It cannot be minimized.</li>
+                  <li>When done, select <strong>Stop Share</strong> in the red box at the top of your screen.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article id="copy-paste" class="card tool-card">
+          <div class="label copy">
+            <div class="icon-box">💬</div>
+            <div>Chat</div>
+          </div>
+
+          <div class="content">
+            <h2>Copying and Pasting Into Zoom Chat</h2>
+            <p>The main script page has copy buttons for Announcements Part 1 and Part 2.</p>
+
+            <details open>
+              <summary>Copy / paste steps</summary>
+              <div class="details-body">
+                <ul>
+                  <li>Copy only one announcement section at a time.</li>
+                  <li>Paste <strong>Announcements Part 1</strong> first.</li>
+                  <li>Then paste <strong>Announcements Part 2</strong>.</li>
+                  <li>If Zoom does not send the message, split the section into smaller pieces and try again.</li>
+                </ul>
+              </div>
+            </details>
+
+            <p class="tool-note"><strong>Tip:</strong> On Windows, use <strong>Ctrl + V</strong>. On Mac, use <strong>Command + V</strong>.</p>
+          </div>
+        </article>
+
+        <article id="end-meeting" class="card tool-card">
+          <div class="label">
+            <div class="icon-box">🌄</div>
+            <div>Close</div>
+          </div>
+
+          <div class="content">
+            <h2>End of Meeting Host Reminder</h2>
+            <p>If you are also the host and need to leave, assign another host before leaving so fellowship can continue.</p>
+
+            <details>
+              <summary>Simple closing reminder</summary>
+              <div class="details-body">
+                <p>Please note if you are also the host, designate another host at the end of the meeting to keep the meeting room open for fellowship if you need to leave.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article id="troubleshooting" class="card tool-card">
+          <div class="label note">
+            <div class="icon-box">🛟</div>
+            <div>Help</div>
+          </div>
+
+          <div class="content">
+            <h2>Quick Troubleshooting</h2>
+
+            <details open>
+              <summary>If screen sharing does not work</summary>
+              <div class="details-body">
+                <ul>
+                  <li>Confirm you claimed host.</li>
+                  <li>Confirm the window you want to share is not minimized.</li>
+                  <li>Try sharing your full screen instead of one window.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details>
+              <summary>If chat paste fails</summary>
+              <div class="details-body">
+                <ul>
+                  <li>Try pasting a smaller section.</li>
+                  <li>Paste Part 1 and Part 2 separately.</li>
+                  <li>Check that the cursor is inside the Zoom chat box before pasting.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <span>☀️ Sunshine Sobriety</span>
+        <span>Zoom Help</span>
+        <span><a href="index.html">Back to Main Script</a></span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
