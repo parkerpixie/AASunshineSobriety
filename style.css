@@ -112,7 +112,7 @@ a {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 10px 4px 10px 0;
-  margin-bottom: 0;
+  margin-bottom: 10px;
   border-bottom: none;
 }
 
@@ -155,7 +155,34 @@ a {
   background: #747474;
 }
 
-/* BOTTOM FITCHBURG IMAGE HIDDEN */
+/* SIDEBAR BOTTOM PAGE BUTTONS */
+
+.sidebar-actions {
+  flex: 0 0 auto;
+  display: grid;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid #f1ddad;
+}
+
+.sidebar-action {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  color: var(--navy);
+  background: #f4f9ff;
+  border: 1px solid #c8d9ef;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.sidebar-action:hover {
+  background: #e9f3ff;
+}
+
+/* OLD BOTTOM FITCHBURG IMAGE HIDDEN */
 
 .sidebar-art {
   display: none;
@@ -177,8 +204,6 @@ a {
   box-shadow: var(--shadow);
   margin-bottom: 18px;
 }
-
-/* Full clickable banner header */
 
 .hero.hero-banner-wrap {
   display: block;
@@ -206,7 +231,8 @@ a {
   object-position: center center;
   border-radius: var(--radius);
 }
-/* Old hero text styles kept in case you ever use text hero again */
+
+/* OLD HERO TEXT STYLES, KEPT IN CASE YOU USE TEXT HERO AGAIN */
 
 h1 {
   margin: 0;
@@ -234,72 +260,18 @@ h1 {
   background: #9fb9d1;
 }
 
-/* Old signup image styles kept harmless */
-
-.leader-signup-image {
-  display: block;
-  margin: 6px auto 0;
-  text-decoration: none;
-}
-
-.leader-signup-image img {
-  display: block;
-  width: 100%;
-  max-width: 235px;
-  height: auto;
-  border-radius: 13px;
-  box-shadow: 0 4px 14px rgba(18, 60, 105, 0.12);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.leader-signup-image:hover img {
-  transform: translateY(-2px);
-  box-shadow: 0 7px 18px rgba(18, 60, 105, 0.18);
-}
-
-.hero-signup-image {
-  display: block;
-  width: clamp(300px, 28vw, 420px);
-  max-width: 100%;
-  margin: 0;
-  justify-self: end;
-  align-self: center;
-  text-decoration: none;
-}
-
-.hero-signup-image img {
-  display: block;
-  width: 100%;
-  max-width: none;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 8px 22px rgba(18, 60, 105, 0.12);
-}
-
-/* OLD TOP RIGHT MESSAGE CARD, KEPT IN CASE YOU EVER USE IT AGAIN */
-
-.hope-card {
-  border: 1px solid #f1cd83;
-  background: #fff7e8;
-  border-radius: 14px;
-  padding: 14px 18px;
-  color: var(--navy);
-  max-width: 280px;
-  display: grid;
-  grid-template-columns: 42px 1fr;
-  align-items: center;
-  gap: 10px;
-  font-style: italic;
-  font-weight: 700;
-}
-
 /* PAGE COLUMNS */
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(330px, 0.88fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 14px;
   align-items: start;
+}
+
+.single-script-layout {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 1080px;
 }
 
 .stack {
@@ -473,7 +445,7 @@ p:last-child {
   background: #fff8ed;
 }
 
-/* COPY CARDS */
+/* COPY / ANNOUNCEMENT CARDS */
 
 .copy-card {
   border-color: #b9d8b7;
@@ -535,12 +507,63 @@ p:last-child {
   margin: 8px 0 0;
 }
 
+.compact-copy-card .copy-head {
+  padding: 16px;
+  align-items: center;
+}
+
+.compact-copy-card .copy-button {
+  min-width: 150px;
+  justify-content: center;
+}
+
+.copy-details {
+  margin: 0 16px 16px;
+  border: 1px solid #cde5c9;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.copy-details summary {
+  cursor: pointer;
+  padding: 12px 14px;
+  font-weight: 900;
+  color: var(--green-dark);
+  list-style: none;
+}
+
+.copy-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.copy-details summary::before {
+  content: "▶ ";
+  color: var(--green-dark);
+}
+
+.copy-details[open] summary::before {
+  content: "▼ ";
+}
+
+.compact-copy-card .copy-body {
+  padding: 0 14px 14px;
+}
+
+.compact-copy-card .copy-preview {
+  margin-top: 0;
+}
+
+/* LISTS */
+
 .content ul,
 .content ol {
   margin: 8px 0 0 20px;
   padding: 0;
   line-height: 1.55;
 }
+
+/* CARD COLOR VARIANTS */
 
 .note-card {
   border-color: #d2d2d2;
@@ -624,6 +647,10 @@ summary {
   flex-wrap: wrap;
 }
 
+.footer a {
+  color: #936111;
+}
+
 /* TOAST */
 
 .toast {
@@ -664,11 +691,17 @@ summary {
     flex: none;
     overflow: visible;
     grid-template-columns: repeat(2, 1fr);
-    border-bottom: none;
+    margin-bottom: 10px;
   }
 
-  .layout {
+  .sidebar-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .layout,
+  .single-script-layout {
     grid-template-columns: 1fr;
+    max-width: none;
   }
 
   .site-logo {
@@ -685,6 +718,18 @@ summary {
 @media (max-width: 720px) {
   .page {
     padding: 10px;
+  }
+
+  .sidebar {
+    padding: 12px;
+  }
+
+  .nav {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-actions {
+    grid-template-columns: 1fr;
   }
 
   .hero.hero-banner-wrap {
@@ -708,10 +753,6 @@ summary {
     width: 42px;
     height: 42px;
     font-size: 23px;
-  }
-
-  .nav {
-    grid-template-columns: 1fr;
   }
 
   .copy-head {
@@ -767,52 +808,4 @@ summary {
   .card {
     margin-bottom: 10px;
   }
-}
-/* COMPACT COPY / ANNOUNCEMENT CARDS */
-
-.compact-copy-card .copy-head {
-  padding: 16px;
-  align-items: center;
-}
-
-.compact-copy-card .copy-button {
-  min-width: 150px;
-  justify-content: center;
-}
-
-.copy-details {
-  margin: 0 16px 16px;
-  border: 1px solid #cde5c9;
-  background: rgba(255, 255, 255, 0.55);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.copy-details summary {
-  cursor: pointer;
-  padding: 12px 14px;
-  font-weight: 900;
-  color: var(--green-dark);
-  list-style: none;
-}
-
-.copy-details summary::-webkit-details-marker {
-  display: none;
-}
-
-.copy-details summary::before {
-  content: "▶ ";
-  color: var(--green-dark);
-}
-
-.copy-details[open] summary::before {
-  content: "▼ ";
-}
-
-.compact-copy-card .copy-body {
-  padding: 0 14px 14px;
-}
-
-.compact-copy-card .copy-preview {
-  margin-top: 0;
 }
