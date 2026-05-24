@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap');
+
 :root {
   --navy: #123c69;
   --blue: #3d84c6;
@@ -28,7 +30,7 @@ html {
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
   color: #1f2933;
   background:
     radial-gradient(circle at top left, rgba(248, 183, 46, 0.2), transparent 32%),
@@ -42,7 +44,7 @@ img {
 
 a {
   color: #0759a5;
-  font-weight: 700;
+  font-weight: 800;
   word-break: break-word;
 }
 
@@ -124,7 +126,7 @@ a {
   color: #1e2b37;
   padding: 8px 10px;
   border-radius: 11px;
-  font-weight: 800;
+  font-weight: 900;
   font-size: 14px;
   line-height: 1.2;
 }
@@ -232,7 +234,13 @@ a {
   border-radius: var(--radius);
 }
 
-/* OLD HERO TEXT STYLES, KEPT IN CASE YOU USE TEXT HERO AGAIN */
+/* TYPOGRAPHY */
+
+h1,
+h2,
+h3 {
+  font-family: "Lora", Georgia, serif;
+}
 
 h1 {
   margin: 0;
@@ -240,6 +248,29 @@ h1 {
   font-size: clamp(34px, 3.7vw, 56px);
   line-height: 1.05;
   letter-spacing: -0.04em;
+}
+
+h2,
+h3 {
+  margin: 0 0 8px;
+  color: #17212b;
+}
+
+h2 {
+  font-size: 21px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+p {
+  margin: 0 0 8px;
+  line-height: 1.45;
+}
+
+p:last-child {
+  margin-bottom: 0;
 }
 
 .subtitle {
@@ -360,40 +391,63 @@ h1 {
   padding: 14px 18px;
 }
 
-h2,
-h3 {
-  margin: 0 0 8px;
-  color: #17212b;
-}
-
-h2 {
-  font-size: 20px;
-}
-
-h3 {
-  font-size: 18px;
-}
-
-p {
-  margin: 0 0 8px;
-  line-height: 1.45;
-}
-
-p:last-child {
-  margin-bottom: 0;
-}
+/* SCRIPT TEXT */
 
 .script-line {
   font-size: 16px;
 }
 
-.prayer {
-  font-style: italic;
-  color: #1c2f3e;
-  background: #fff9ee;
-  border-left: 4px solid var(--sun);
-  padding: 10px 12px;
+/* LEADER ASIDE, FOR WORDS NOT MEANT TO BE READ ALOUD */
+
+.leader-aside {
+  margin: 8px 0 10px;
+  padding: 8px 11px;
+  border-left: 4px solid #6ca3d8;
+  background: #f4f9ff;
+  color: #315a7a;
   border-radius: 10px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.leader-aside strong {
+  color: var(--navy);
+  font-style: normal;
+}
+
+/* SERENITY PRAYER */
+
+.prayer {
+  text-align: center;
+  font-style: italic;
+  color: #123c69;
+  background:
+    radial-gradient(circle at top center, rgba(248, 183, 46, 0.24), transparent 42%),
+    linear-gradient(180deg, #fffdf8 0%, #fff5dd 100%);
+  border: 1px solid #f1cd83;
+  border-top: 4px solid var(--sun);
+  border-radius: 16px;
+  padding: 18px 22px;
+  margin: 12px 0 0;
+  line-height: 1.65;
+  box-shadow: 0 4px 14px rgba(18, 60, 105, 0.08);
+}
+
+.prayer strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--sun-dark);
+  font-style: normal;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.prayer::before {
+  content: "☀️";
+  display: block;
+  font-size: 24px;
+  margin-bottom: 6px;
 }
 
 .strong {
@@ -410,6 +464,8 @@ p:last-child {
   font-style: italic;
   color: #68717a;
 }
+
+/* MINI LAYOUTS */
 
 .two-mini {
   display: grid;
@@ -487,6 +543,7 @@ p:last-child {
   gap: 8px;
   align-items: center;
   white-space: nowrap;
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
 }
 
 .copy-button:hover {
@@ -630,6 +687,108 @@ summary {
   letter-spacing: 0.08em;
 }
 
+/* SUPPORT PAGES: ZOOM HELP / LINKS & READINGS */
+
+.page-tools {
+  display: grid;
+  grid-template-columns: 285px minmax(0, 1fr);
+  gap: 18px;
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.tool-hero {
+  background:
+    linear-gradient(135deg, rgba(220, 238, 251, 0.94), rgba(255, 249, 238, 0.94)),
+    radial-gradient(circle at top right, rgba(248, 183, 46, 0.28), transparent 36%);
+  border: 1px solid #f1ddad;
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+}
+
+.tool-hero h1 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.tool-hero p {
+  max-width: 780px;
+  margin-top: 10px;
+  color: #315a7a;
+  font-size: 18px;
+}
+
+.single-column {
+  display: grid;
+  gap: 12px;
+  max-width: 980px;
+}
+
+.quick-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.quick-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  text-decoration: none;
+  border: 1px solid #c8d9ef;
+  background: #ffffff;
+  color: var(--navy);
+  border-radius: 999px;
+  padding: 9px 13px;
+  font-weight: 900;
+}
+
+.quick-button:hover {
+  background: #f4f9ff;
+}
+
+.tool-card {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+}
+
+.tool-note {
+  background: #fff9ee;
+  border-left: 4px solid var(--sun);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #1c2f3e;
+  margin-top: 10px;
+}
+
+.link-grid {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.resource-link {
+  display: block;
+  text-decoration: none;
+  border: 1px solid #d8e7f5;
+  background: #f7fbff;
+  color: var(--navy);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 900;
+}
+
+.resource-link:hover {
+  background: #e9f3ff;
+}
+
 /* FOOTER */
 
 .footer {
@@ -677,7 +836,8 @@ summary {
 /* TABLET */
 
 @media (max-width: 1100px) {
-  .page {
+  .page,
+  .page-tools {
     grid-template-columns: 1fr;
   }
 
@@ -716,7 +876,8 @@ summary {
 /* MOBILE */
 
 @media (max-width: 720px) {
-  .page {
+  .page,
+  .page-tools {
     padding: 10px;
   }
 
@@ -741,7 +902,8 @@ summary {
   }
 
   .script-card,
-  .two-mini {
+  .two-mini,
+  .tool-card {
     grid-template-columns: 1fr;
   }
 
@@ -774,6 +936,10 @@ summary {
     justify-content: space-between;
   }
 
+  .tool-hero {
+    padding: 18px;
+  }
+
   .footer {
     flex-direction: column;
     gap: 6px;
@@ -792,9 +958,11 @@ summary {
   }
 
   .page,
+  .page-tools,
   .layout,
   .script-card,
-  .two-mini {
+  .two-mini,
+  .tool-card {
     display: block;
   }
 
